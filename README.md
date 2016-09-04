@@ -1,7 +1,12 @@
 ```
 cd ~/ecl
-./configure --host=arm-linux-androideabi --with-system-gmp --enable-boehm=included  --with-cxx --with-dffi --disable-soname --prefix=/data/data/com.termux/files/usr/local --with-cross-config=`pwd`/src/util/android.cross_config
+./configure --host=arm-linux-androideabi --with-system-gmp --enable-boehm=included  --with-cxx --with-dffi --enable-shared=no --disable-soname --prefix=/data/data/com.termux/files/usr/local --with-cross-config=`pwd`/src/util/android.cross_config
 make -j4
+make install
+tar cf ~/ecl-16.1.2_termux.tar /data/data/com.termux/files/usr/local/
+export PATH=$PATH:/data/data/com.termux/files/usr/local/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/data/data/com.termux/files/usr/local/lib
+
 ```
 
 
