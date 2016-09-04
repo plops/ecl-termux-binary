@@ -91,3 +91,45 @@ NIL
 > (swank:create-server :dont-close t)
 ;; Swank started at port: 4005.
 ```
+
+Configure ~/.ssh/config on laptop
+```
+Host termux localhost
+    IdentityFile ~/.ssh/id_rsa_tree
+    User martin
+    Port 8022    
+```
+
+
+
+Open tunnel from laptop to tablet:
+```
+ssh -R 4005:localhost:4005 -i ~/.ssh/id_rsa_tree -p 8022 localhost
+```
+
+Link some files to /bin on tablet so that emacs TRAMP mode can use them
+```
+mkdir -p /usr/bin
+ln -s /data/data/com.termux/files/usr/bin/applets/{ls,chown} /bin
+```
+
+On Laptop start emacs and connect to remote swank:
+```
+emacs
+M-x slime-connect 127.0.0.1 4005
+
+```
+
+Configure TRAMP in  ~/.emacs on laptop 
+```
+(add-to-list 'slime-filename-translations
+             (slime-create-filename-translator
+	      :machine-instance "localhost" :remote-host "localhost" :username "martin"
+	      ))
+
+```
+
+In emacs on laptop use TRAMP to open a remote file
+```
+C-x C-f /martin@localhost:/data/data/com.termux/files/home/bla.lisp
+```
