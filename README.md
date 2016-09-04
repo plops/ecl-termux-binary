@@ -1,6 +1,7 @@
 ```
 cd ~/ecl
 ./configure --host=arm-linux-androideabi --with-system-gmp --enable-boehm=included  --with-cxx --with-dffi --disable-soname --prefix=/data/data/com.termux/files/usr/local --with-cross-config=`pwd`/src/util/android.cross_config
+make -j4
 ```
 
 
