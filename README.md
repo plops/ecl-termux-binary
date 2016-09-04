@@ -18,6 +18,15 @@ tar xf /data/data/com.termux/files/home/ecl-16.1.2_termux.tar
 export PATH=$PATH:/usr/local/bin
 ```
 
+The *features* of this version of ECL are:
+```
+(SWANK WALKER ECL-BYTECMP ANDROID FORMATTER ECL-WEAK-HASH LITTLE-ENDIAN
+ ECL-READ-WRITE-LOCK LONG-LONG UINT64-T UINT32-T UINT16-T
+ RELATIVE-PACKAGE-NAMES LONG-FLOAT UNICODE DFFI CLOS-STREAMS CMU-FORMAT UNIX
+ ECL-PDE CLOS THREADS BOEHM-GC ANSI-CL COMMON-LISP IEEE-FLOATING-POINT
+ PREFIXED-API FFI ARM COMMON ECL)
+```
+
 Install Quicklisp:
 ```
 cd /data/data/com.termux/files/home
