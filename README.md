@@ -1,5 +1,15 @@
 
 ```
+> *features*
+
+(:WALKER :ECL-BYTECMP :LINUX :FORMATTER :ECL-WEAK-HASH :LITTLE-ENDIAN
+ :ECL-READ-WRITE-LOCK :LONG-LONG :UINT64-T :UINT32-T :UINT16-T
+ :RELATIVE-PACKAGE-NAMES :LONG-FLOAT :UNICODE :DFFI :CLOS-STREAMS :CMU-FORMAT
+ :UNIX :ECL-PDE :CLOS :THREADS :BOEHM-GC :ANSI-CL :COMMON-LISP
+ :IEEE-FLOATING-POINT :PREFIXED-API :FFI :ARMV7L :COMMON :ECL)
+
+```
+```
 su
 cd /
 tar xf /data/data/com.termux/files/home/ecl-16.1.2_termux.tar
@@ -9,10 +19,10 @@ export PATH=$PATH:/usr/local/bin
 Trying to install slime:
 
 ```
-apt install emacs
 git clone https://github.com/slime/slime
 cd slime
 ecl -load swank-loader
+(require 'sb-bsd-sockets)
 (swank-loader:init)
 (swank:create-server :dont-close t)
 ```
