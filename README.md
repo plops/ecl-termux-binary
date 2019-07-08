@@ -20,7 +20,7 @@ This is how I built the ECL binary on a Xiaomi 4c 2GB:
 pkg install build-essential texinfo
 cd ~
 git clone https://gitlab.com/embeddable-common-lisp/ecl.git
-# commit 06f0a93421b261aaa0fbfb2c9d077eebfc366280 Fri Jun 21 20:15:31 2019 +0200
+# Version 16.1.3; git commit 06f0a93421b261aaa0fbfb2c9d077eebfc366280 Fri Jun 21 20:15:31 2019 +0200
 cd ecl
 /configure --prefix=$HOME/.local --build=aarch64-linux-android --enable-gmp=included
 make -j6
@@ -48,47 +48,7 @@ Instead I download slime and load it directly:
 ;;; Loading "/data/data/com.termux/files/home/quicklisp/setup.lisp"
 ;;; Loading #P"/data/data/com.termux/files/usr/local/lib/ecl-16.1.2/asdf.fasc"
 ;;; Loading "/data/data/com.termux/files/home/slime/swank-loader.lisp"
-ECL (Embeddable Common-Lisp) 16.1.2 (git:326829fd58b733f6f42e81f2e53a7b8c5860c7c5)
-Copyright (C) 1984 Taiichi Yuasa and Masami Hagiya
-Copyright (C) 1993 Giuseppe Attardi
-Copyright (C) 2000 Juan J. Garcia-Ripoll
-Copyright (C) 2015 Daniel Kochmanski
-ECL is free software, and you are welcome to redistribute it
-under certain conditions; see file 'Copyright' for details.
-Type :h for Help.  
-Top level in: #<process TOP-LEVEL>.
->  (swank-loader:init)
-;;; Compiling /data/data/com.termux/files/home/slime/contrib/swank-util.lisp
-;;; Compiling #<input stream /data/data/com.termux/files/home/slime/contrib/swank-util.lisp>
-;;; Compiling /data/data/com.termux/files/home/slime/contrib/swank-repl.lisp
-;;; Compiling #<input stream /data/data/com.termux/files/home/slime/contrib/swank-repl.lisp>
-;;; Compiling /data/data/com.termux/files/home/slime/contrib/swank-c-p-c.lisp
-;;; Compiling #<input stream /data/data/com.termux/files/home/slime/contrib/swank-c-p-c.lisp>
-;;; Compiling /data/data/com.termux/files/home/slime/contrib/swank-arglists.lisp
-;;; Compiling #<input stream /data/data/com.termux/files/home/slime/contrib/swank-arglists.lisp>
-;;; Compiling /data/data/com.termux/files/home/slime/contrib/swank-fuzzy.lisp
-;;; Compiling #<input stream /data/data/com.termux/files/home/slime/contrib/swank-fuzzy.lisp>
-;;; Compiling /data/data/com.termux/files/home/slime/contrib/swank-fancy-inspector.lisp
-;;; Compiling #<input stream /data/data/com.termux/files/home/slime/contrib/swank-fancy-inspector.lisp>
-;;; Compiling /data/data/com.termux/files/home/slime/contrib/swank-presentations.lisp
-;;; Compiling #<input stream /data/data/com.termux/files/home/slime/contrib/swank-presentations.lisp>
-;;; Compiling /data/data/com.termux/files/home/slime/contrib/swank-presentation-streams.lisp
-;;; Compiling #<input stream /data/data/com.termux/files/home/slime/contrib/swank-presentation-streams.lisp>
-;;; Compiling /data/data/com.termux/files/home/slime/contrib/swank-asdf.lisp
-;;; Compiling #<input stream /data/data/com.termux/files/home/slime/contrib/swank-asdf.lisp>
-;;; Compiling /data/data/com.termux/files/home/slime/contrib/swank-package-fu.lisp
-;;; Compiling #<input stream /data/data/com.termux/files/home/slime/contrib/swank-package-fu.lisp>
-;;; Compiling /data/data/com.termux/files/home/slime/contrib/swank-hyperdoc.lisp
-;;; Compiling #<input stream /data/data/com.termux/files/home/slime/contrib/swank-hyperdoc.lisp>
-;;; Compiling /data/data/com.termux/files/home/slime/contrib/swank-mrepl.lisp
-;;; Compiling #<input stream /data/data/com.termux/files/home/slime/contrib/swank-mrepl.lisp>
-;;; Compiling /data/data/com.termux/files/home/slime/contrib/swank-trace-dialog.lisp
-;;; Compiling #<input stream /data/data/com.termux/files/home/slime/contrib/swank-trace-dialog.lisp>
-;;; Compiling /data/data/com.termux/files/home/slime/contrib/swank-macrostep.lisp
-;;; Compiling #<input stream /data/data/com.termux/files/home/slime/contrib/swank-macrostep.lisp>
-;;; Compiling /data/data/com.termux/files/home/slime/contrib/swank-quicklisp.lisp
-;;; Compiling #<input stream /data/data/com.termux/files/home/slime/contrib/swank-quicklisp.lisp>
-NIL
+ECL (Embeddable Common-Lisp) 16.1.2 ...
 > (swank:create-server :dont-close t)
 ;; Swank started at port: 4005.
 ```
