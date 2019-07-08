@@ -1,42 +1,33 @@
-This is how I built the ECL binary:
+How to install this in termux:
 ```
-cd ~/ecl
-./configure --host=arm-linux-androideabi --with-system-gmp --enable-boehm=included  --with-cxx --with-dffi --enable-shared=no --disable-soname --prefix=/data/data/com.termux/files/usr/local --with-cross-config=`pwd`/src/util/android.cross_config
-make -j4
-make install
-tar cf ~/ecl-16.1.2_termux.tar /data/data/com.termux/files/usr/local/
-export PATH=$PATH:/data/data/com.termux/files/usr/local/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/data/data/com.termux/files/usr/local/lib
+cd ~
+wget http://github.com/plops/ecl-termux-binary/blob/master/dot_local.tar.gz?raw=true
+tar xaf dot_local.tar.gz
+wget http://beta.quicklisp.org/quicklisp.lisp
+.local/bin/ecl --load quicklisp.org
 
-```
-
-This is how you can install it in termux (assuming the tar file is in the termux home directory):
-
-```
-cd /data/com.termux/files/
-tar xf /data/data/com.termux/files/home/ecl-16.1.2_termux.tar
-export PATH=$PATH:/usr/local/bin
-```
-
-The *features* of this version of ECL are:
-```
-(SWANK WALKER ECL-BYTECMP ANDROID FORMATTER ECL-WEAK-HASH LITTLE-ENDIAN
- ECL-READ-WRITE-LOCK LONG-LONG UINT64-T UINT32-T UINT16-T
- RELATIVE-PACKAGE-NAMES LONG-FLOAT UNICODE DFFI CLOS-STREAMS CMU-FORMAT UNIX
- ECL-PDE CLOS THREADS BOEHM-GC ANSI-CL COMMON-LISP IEEE-FLOATING-POINT
- PREFIXED-API FFI ARM COMMON ECL)
-```
-
-Install Quicklisp:
-```
-cd /data/data/com.termux/files/home
-curl -O https://beta.quicklisp.org/quicklisp.lisp
-ecl -load quicklisp.lisp
 (quicklisp-quickstart:install)
 (ql:add-to-init-file)
+(ql:quickload "quicklisp-slime-helper")
 ```
-This adds some code in
-/data/data/com.termux/files/home/.eclrc
+
+Then use an emacs configuration like dot_emacs in this repo
+
+
+
+This is how I built the ECL binary on a Xiaomi 4c 2GB:
+```
+pkg install build-essential texinfo
+cd ~
+git clone https://gitlab.com/embeddable-common-lisp/ecl.git
+# commit 06f0a93421b261aaa0fbfb2c9d077eebfc366280 Fri Jun 21 20:15:31 2019 +0200
+cd ecl
+/configure --prefix=$HOME/.local --build=aarch64-linux-android --enable-gmp=included
+make -j6
+make install 
+cd ~
+tar czf dot_local.tar.gz .local
+```
 
 Trying to start a swank server using quicklisp takes forever:
 
@@ -47,6 +38,7 @@ Trying to start a swank server using quicklisp takes forever:
 
 ```
 
+Note: The following is not really true anymore. Slime works fast enough. But I keep it because I might want to know how to set up Emacs with Tramp.
 
 Instead I download slime and load it directly:
 
