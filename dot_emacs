@@ -1,0 +1,31 @@
+
+(package-initialize)
+;(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(inhibit-startup-screen t)
+ '(package-selected-packages (quote (better-defaults ido-hacks magit paredit))))
+'(show-paren-mode t)
+'(tool-bar-mode nil)
+;'(transient-mark-mode nil)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode +1)
+(tool-bar-mode -1)
+(show-paren-mode 1)
+
+
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+(setq inferior-lisp-program "/data/data/com.termux/files/home/.local/bin/ecl")
+
+
